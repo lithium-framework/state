@@ -6,7 +6,8 @@
   "type": "module",
   "module": "ESNext",
   "scripts": {
-    "test": "npx jest --watchAll"
+    "test": "npx jest",
+    "test:watch": "npx jest --watchAll"
   },
   "repository": {
     "type": "git",
