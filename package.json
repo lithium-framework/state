@@ -2,10 +2,10 @@
   "name": "@lithium-framework/state",
   "version": "1.0.0",
   "description": "",
-  "main": "./dist/index.js",
+  "main": "./index.js",
   "type": "module",
   "module": "ESNext",
-  "public" : false,
+  "public": false,
   "scripts": {
     "test": "npx jest",
     "test:watch": "npx jest --watchAll",
