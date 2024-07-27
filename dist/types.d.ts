@@ -1,19 +1,7 @@
 /**
  * La classe `State` gère et suit les valeurs d'état avec des capacités d'historique et d'abonnement.
  */
-export declare class State<T = any> {
-    /**
-     * Propriété privée pour stocker l'historique des valeurs d'état, limitée aux 10 dernières entrées.
-    */
-    private _history;
-    /**
-     * Propriété privée pour stocker la valeur actuelle de l'état, initialisée à `null`.
-    */
-    private _value;
-    /**
-     * Propriété privée pour notifier les observateurs des changements d'état, initialisée avec `Observable.getNotifier`.
-    */
-    private _notifier;
+export class State<T = any> {
     constructor(value?: any);
     /**
      * Getter pour la valeur actuelle de l'état. Utilise `Observable.track` pour suivre les changements.
@@ -47,3 +35,24 @@ export declare class State<T = any> {
     */
     [Symbol.toPrimitive](): T;
 }
+/**
+ * La fonction createState crée un état avec une valeur initiale et renvoie son mutateur.
+ * @param {T} [value=null] - Le paramètre `value` dans la fonction `createState` est la valeur initiale
+ * que vous souhaitez définir pour l'état. Il est facultatif et la valeur par défaut est « null » si
+ * aucune valeur n'est fournie lors de l'appel de la fonction.
+ * @returns La fonction `createState` renvoie la fonction `mutator` à partir de l'objet `State`
+ * initialisé avec la `valeur` fournie.
+ * ## Exemple
+ * ```typescript
+ * let [ counter , setCounter ] = createState<number>(0);
+ *
+ * counter.subscribe(( newValue ) => {
+ *
+ *  console.log({newValue})
+ *
+ * })
+ * ```
+ */
+export function createState<T = any>(value?: T): State<T>["mutator"];
+
+//# sourceMappingURL=types.d.ts.map
